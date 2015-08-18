@@ -1,0 +1,28 @@
+{
+  "name": "patolino",
+  "version": "1.0.0",
+  "description": "Create settings file by components files",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/klaytonfaria/patolino.git"
+  },
+  "keywords": [
+    "settings",
+    "component"
+  ],
+  "author": "Klayton Faria <klayton.souza+npm@gmail.com> (klayton.ninja)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/klaytonfaria/patolino/issues"
+  },
+  "homepage": "https://gitlab.com/klaytonfaria/patolino#README",
+  "dependencies": {
+    "cli": "^0.9.0",
+    "glob": "^5.0.14",
+    "jsonfile": "^2.2.1"
+  }
+}
