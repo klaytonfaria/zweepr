@@ -4,10 +4,29 @@
 var cli = require("cli"),
     glob = require("glob"),
     json = require("jsonfile"),
+    program = require("commander"),
     filePath = "/app/walmart-frontend/webstore/assets/desktop/template/**/wm-component.json",
     appSettings = require("./lib/AppSettings"),
     outputFile = "/app/walmart-frontend/webstore/settings.json",
     output = [];
+
+
+    program
+      .version('0.1.0')
+      .option('-i, --init', 'make initial component structure')      
+
+    program.on('--help', function(){
+      console.log('  Examples:');
+      console.log('');
+      console.log('    $ node app --help');
+      console.log('    $ node app -h');
+      console.log('');
+    });
+
+    program.parse(process.argv);
+
+
+
 
 function readJson(filePath) {
   glob(filePath, function(err, files) {
