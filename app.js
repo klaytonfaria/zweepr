@@ -2,48 +2,37 @@
 "use strict"
 
 var cli = require("cli"),
+    Q = require("q"),
     glob = require("glob"),
     json = require("jsonfile"),
-    file = "/app/walmart-frontend/webstore/assets/desktop/template/**/wm-component.json",
+    filePath = "/app/walmart-frontend/webstore/assets/desktop/template/**/wm-component.json",
     appSettings = require("./lib/AppSettings"),
-    outputSettings = {
-      "settings": []
-    };
+    outputFile = "/app/walmart-frontend/webstore/settings.json",
+    output = [];
 
-
-    step(function() {
-        console.log(1)
-        next;
-      },
-      function() {
-        console.log(2);
-      },
-      function() {
-        console.log(3);
-      });
-
-
-function readJson(file) {
-
-  glob(file, function(err, files) {
-
-    for(var i = 0; i < files.length; i++) {
-      json.readFile(files[i], function(err, obj) {
-        var jsonSettings = appSettings()
-          .createPage(obj)
-          .addScript(obj)
-          .getObject();
-          outputSettings.settings.push(jsonSettings);
-          console.log(JSON.stringify(outputSettings));
-      });
-
-      if(i === (files.length -1)) {
-        console.log(JSON.stringify(outputSettings));
-      }
-    }
-
-  });
-
+function writeJson(filePath, obj) {
+  cli.info("creating " + filePath);
+  json.writeFileSync(filePath, obj, {spaces: 2}, function (err) {
+    cli.info(err);
+  })
 }
 
-readJson(file);
+function readJson(filePath) {
+  var deferred = Q.defer();
+  glob(filePath, function(err, files) {
+    for(var i = 0; i < files.length; i++) {
+      var obj = json.readFileSync(files[i]),
+          newObject = appSettings().createPage(obj).addScript(obj);
+
+      output.push(newObject.getObject());
+    }
+        deferred.resolve(output);
+  });
+  return deferred.promise;
+}
+
+
+
+readJson(filePath).then(function(obj) {
+  writeJson(outputFile, obj);
+});
