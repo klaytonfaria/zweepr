@@ -9,6 +9,7 @@ var Q = require("q"),
     filePath = "/app/walmart-frontend/webstore/assets/desktop/template/**/wm-component.json",
     appSettings = require("./lib/AppSettings"),
     outputFile = "/app/walmart-frontend/webstore/settings.json",
+    registeredComponent = [],
     output = [];
 
 
@@ -35,22 +36,29 @@ function readFile(file) {
   var deferred = Q.defer(),
       fileList = glob.sync(file);
 
+
       // console.log("--->", fileList);
 
   for(var i = 0; i < fileList.length; i++) {
     var obj = json.readFileSync(fileList[i]),
-        resultObj = appSettings()
-                    .createPage(obj)
-                    .addScript(obj),
-        componentList = resultObj.getComponents(obj);
-    cli.info("Component found: " + obj.name);
+        componentName = obj.name.toLowerCase();
 
-    if(componentList.length > 0) {
-      for(var i2 = 0; i2 < componentList.length; i2++) {
-        readFile(componentList[i2]);
+    // Exclude all duplicated components
+    if(registeredComponent.indexOf(componentName) < 0) {
+      var resultObj = appSettings().createPage(obj).addScript(obj),
+          componentList = resultObj.getComponents(obj);
+
+      cli.info("Component found: " + componentName);
+      registeredComponent.push(componentName);
+
+      if(componentList.length > 0) {
+        for(var i2 = 0; i2 < componentList.length; i2++) {
+          readFile(componentList[i2]);
+        }
       }
+
+      output.push(resultObj.getObject());
     }
-    output.push(resultObj.getObject());
   }
   deferred.resolve(output);
   return deferred.promise;
