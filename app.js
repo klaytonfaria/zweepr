@@ -56,11 +56,11 @@ function convertListToObject(list) {
     obj[pageKey] = obj[pageKey] || {};
     if(list[i][pageKey].scripts) {
       obj[pageKey].scripts = obj[pageKey].scripts || [];
-      obj[pageKey].scripts = obj[pageKey].scripts.concat(list[i][pageKey].scripts).reverse();
+      obj[pageKey].scripts = obj[pageKey].scripts.concat(list[i][pageKey].scripts.reverse()).reverse();
     }
     if(list[i][pageKey].styles) {
       obj[pageKey].styles = obj[pageKey].styles || [];
-      obj[pageKey].styles = obj[pageKey].styles.concat(list[i][pageKey].styles).reverse();
+      obj[pageKey].styles = obj[pageKey].styles.concat(list[i][pageKey].styles.reverse()).reverse();
     }
   }
 
