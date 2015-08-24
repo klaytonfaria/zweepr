@@ -2,9 +2,12 @@
   "name": "patolino",
   "version": "1.0.0",
   "description": "Create settings file by components files",
-  "main": "app.js",
+  "main": "./app.js",
   "bin": {
     "patolino": "./app.js"
+  },
+  "engines": {
+    "node": ">=0.10"
   },
   "scripts": {
     "test": "make test"
@@ -29,5 +32,9 @@
     "glob": "^5.0.14",
     "jsonfile": "^2.2.1",
     "q": "^1.4.1"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {}
 }
