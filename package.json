@@ -1,6 +1,6 @@
 {
   "name": "patolino",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Create settings file by components files",
   "main": "./app.js",
   "bin": {
