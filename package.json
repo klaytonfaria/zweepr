@@ -1,7 +1,7 @@
 {
   "name": "patolino",
   "version": "1.0.1",
-  "description": "Create settings file by components files",
+  "description": "This NPM module consolidates settings and dependencies of (and between) components. Build json files to be used by tasks managers like gulp, grunt, broccoli, etc...",
   "main": "./app.js",
   "bin": {
     "patolino": "./bin/index"
@@ -14,18 +14,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/klaytonfaria/patolino.git"
+    "url": "git+https://gitlab.wmxp.com.br/npm-repos/patolino.git"
   },
   "keywords": [
+    "component",
     "settings",
-    "component"
+    "grunt",
+    "gulp"
   ],
-  "author": "Klayton Faria <klayton.souza+npm@gmail.com> (klayton.ninja)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://gitlab.com/klaytonfaria/patolino/issues"
-  },
-  "homepage": "https://gitlab.com/klaytonfaria/patolino#README",
+  "author": "Klayton Faria <klayton.faria@walmart.com> (klayton.faria)",
+  "homepage": "https://gitlab.com/klaytonfaria/patolino",
   "dependencies": {
     "cli": "^0.9.0",
     "glob": "^5.0.14",
