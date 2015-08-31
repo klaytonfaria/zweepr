@@ -9,9 +9,10 @@ var cli = require("cli"),
 
 
 cli.main(function(args, options) {
-  settingsGenerator.readFile(options.cwd + options.src).then(function(obj) {
-    utils.writeJson(options.dist, obj);
-  }, function(err) {
-    cli.fatal(err);
-  });
+  try {
+      var content = settingsGenerator.readFile(options.cwd + options.src);
+      utils.writeJson(options.dist, content);
+  } catch (err) {
+      cli.fatal(err);
+  }
 });

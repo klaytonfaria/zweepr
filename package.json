@@ -27,8 +27,7 @@
   "dependencies": {
     "cli": "^0.9.0",
     "glob": "^5.0.14",
-    "jsonfile": "^2.2.1",
-    "q": "^1.4.1"
+    "jsonfile": "^2.2.1"
   },
   "directories": {
     "test": "tests"
