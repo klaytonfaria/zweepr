@@ -1,7 +1,7 @@
 Patolino
 ===
 
-Create settings file with all dependencies of components inside of page
+This NPM module consolidates settings and dependencies of (and between) components. Build json files file with all dependencies of components inside of page to be used by tasks manager like gulp, grunt, broccoli, etc...
 
 ### Getting Started
 #### Create a component.json with type:"page"
