@@ -4,15 +4,10 @@
 var cli = require("cli"),
     utils = require("./lib/utils"),
     helpme = require("./lib/helpme"),
-    options = cli.parse(helpme),
-    settingsGenerator = require("./lib/settingsGenerator")();
-
+    options = cli.parse(helpme);
 
 cli.main(function(args, options) {
-  try {
-      var content = settingsGenerator.readFile(options.cwd + options.src);
-      utils.writeJson(options.dist, content);
-  } catch (err) {
-      cli.fatal(err);
-  }
+  var settingsGenerator = require("./lib/settingsGenerator")(options),
+      content = settingsGenerator.readFile(options.cwd + options.src);
+  utils.writeJson(options.dist, content);
 });
