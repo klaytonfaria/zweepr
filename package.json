@@ -1,6 +1,6 @@
 {
   "name": "patolino",
-  "version": "1.0.3",
+  "version": "1.0.4-0",
   "description": "This NPM module consolidates settings and dependencies of (and between) components. Build json files to be used by tasks manager like gulp, grunt, broccoli, etc...",
   "main": "./app.js",
   "bin": {
