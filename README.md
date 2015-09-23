@@ -1,4 +1,4 @@
-Patolino
+Zweepr [![npm](https://img.shields.io/npm/dt/zweepr.svg)]()
 ===
 
 This NPM module consolidates settings and dependencies of (and between) components. Build json files file with all dependencies of components inside of page to be used by tasks manager like gulp, grunt, broccoli, etc...
@@ -11,7 +11,7 @@ This NPM module consolidates settings and dependencies of (and between) componen
   "name": "home",
   "device": "desktop",
   "type": "page",
-  "description": "Home walmart.com.br",
+  "description": "Home site.com.br",
   "repository": "https://gitrepo.url/home.git",
   "language": "assets/desktop/home/js/i18n/pt-br.json",
   "toggles": {},
@@ -57,25 +57,28 @@ This NPM module consolidates settings and dependencies of (and between) componen
 ---
 
 ```bash
-$ git clone https://gitlab.com/klaytonfaria/patolino.git
-$ cd patolino -h
+$ git clone https://gitlab.com/klaytonfaria/zweepr.git
+$ cd zweepr -h
 
 Usage:
-  patolino.js [OPTIONS] [ARGS]
+  zweepr [OPTIONS] [ARGS]
 
 Options:
-      --cwd [STRING]     work directory (Default is /app/walmart-frontend/webstore/)
-      --src [STRING]     file(s) directory (Default is assets/desktop/template/**/wm-component.json)
-      --dist [STRING]    output file directory (Default is /app/walmart-frontend/webstore/settings.json)
+      --cwd [STRING]     work directory (Default is /app/)
+      --src [STRING]     file(s) directory (Default is assets/*[desktop|mobile]*/**/wm-component.json)
+      --dist [STRING]    output file directory (Default is /app/build/settings.json)
+  -v, --verbose          output found pages, components and scritps founds
+  -p, --verbosePages     output found pages founds
+  -V, --version          show Zweepr version
   -h, --help             Display help and usage details
 ```
 
 ### Output
 ---
-Running command bellow, Patolino will create a json senttings with all dependencies inside your page ;)
+Running command bellow, Zweepr will create a json senttings with all dependencies inside your page ;)
 
 ```bash
-patolino --cwd="assets/" --src="desktop/**/component.json" --dist="settings-desktop.json"
+zweepr --cwd="assets/" --src="desktop/**/component.json" --dist="settings-desktop.json"
 ```
 
 ```javascript
@@ -89,4 +92,32 @@ patolino --cwd="assets/" --src="desktop/**/component.json" --dist="settings-desk
     ]
   }
 }
+```
+Now you can use settings-desktop.json in your grunt or gulp to help run tasks like [grunt-contrib-concat](https://github.com/gruntjs/grunt-contrib-concat), [grunt-contrib-uglify](https://github.com/gruntjs/grunt-contrib-uglify), [grunt-contrib-lint](https://github.com/gruntjs/grunt-contrib-lint), etc...
+Follows an usage example:
+
+```javascript
+/*global module:false */
+module.exports = function(grunt) {
+  "use strict";
+
+  var settingsApp = grunt.file.readJSON("config/settings-app.json");
+
+  // Setting grunt app options
+  grunt.config.set("options", {
+      pkg: grunt.file.readJSON("package.json"),
+      app: settingsApp
+    }
+  );
+
+  console.log(settingsApp.home.scripts);
+
+  // Init Grunt
+  require("time-grunt")(grunt);
+  require("load-grunt-config")(grunt, {
+    configPath: process.cwd() + "/config/grunt/",
+    init: true
+  });
+};
+
 ```

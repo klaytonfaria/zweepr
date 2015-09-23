@@ -1,20 +1,17 @@
 {
-  "name": "patolino",
+  "name": "zweepr",
   "version": "1.0.6-1",
   "description": "This NPM module consolidates settings and dependencies of (and between) components. Build json files to be used by tasks manager like gulp, grunt, broccoli, etc...",
   "main": "./app.js",
   "bin": {
-    "patolino": "./bin/index"
+    "zweepr": "./bin/index"
   },
   "engines": {
     "node": ">=0.10"
   },
-  "scripts": {
-    "test": "make test"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.wmxp.com.br/npm-repos/patolino.git"
+    "url": "git+https://github.com.br/klaytonfaria/zweepr.git"
   },
   "keywords": [
     "component",
@@ -22,15 +19,11 @@
     "grunt",
     "gulp"
   ],
-  "author": "Klayton Faria <klayton.faria@walmart.com> (klayton.faria)",
-  "homepage": "https://gitlab.com/klaytonfaria/patolino",
+  "author": "Klayton Faria <klayton.souza+npm@gmail.com> (klayton.faria)",
+  "homepage": "https://github.com/klaytonfaria/zweepr",
   "dependencies": {
     "cli": "^0.9.0",
     "glob": "^5.0.14",
     "jsonfile": "^2.2.1"
-  },
-  "directories": {
-    "test": "tests"
-  },
-  "devDependencies": {}
+  }
 }
