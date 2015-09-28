@@ -13,12 +13,7 @@
     "type": "git",
     "url": "https://github.com/klaytonfaria/zweepr"
   },
-  "keywords": [
-    "component",
-    "settings",
-    "grunt",
-    "gulp"
-  ],
+  "keywords": ["component", "settings", "grunt", "gulp", "json", "recursivity"],
   "author": "Klayton Faria <klayton.souza+npm@gmail.com> (klayton.faria)",
   "homepage": "https://github.com/klaytonfaria/zweepr",
   "dependencies": {
