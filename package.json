@@ -1,6 +1,6 @@
 {
   "name": "zweepr",
-  "version": "1.0.10-0",
+  "version": "1.0.10-1",
   "description": "This NPM module consolidates settings and dependencies of (and between) components. Build json files to be used by tasks manager like gulp, grunt, broccoli, etc...",
   "main": "./app.js",
   "bin": {
@@ -13,7 +13,14 @@
     "type": "git",
     "url": "https://github.com/klaytonfaria/zweepr"
   },
-  "keywords": ["component", "settings", "grunt", "gulp", "json", "recursivity"],
+  "keywords": [
+    "component",
+    "settings",
+    "grunt",
+    "gulp",
+    "json",
+    "recursivity"
+  ],
   "author": "Klayton Faria <klayton.souza+npm@gmail.com> (klayton.faria)",
   "homepage": "https://github.com/klaytonfaria/zweepr",
   "dependencies": {
