@@ -78,7 +78,7 @@ Options:
 Running command bellow, Zweepr will create a json senttings with all dependencies inside your page ;)
 
 ```bash
-zweepr --cwd="assets/" --src="desktop/**/component.json" --dist="settings-desktop.json"
+zweepr --cwd="assets/" --src="desktop/**/component.json" --dist="settings-desktop.json -p"
 ```
 
 ```javascript
