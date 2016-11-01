@@ -4,7 +4,7 @@ Zweepr [![npm](https://img.shields.io/npm/dt/zweepr.svg)]()
 This NPM module consolidates settings and dependencies of (and between) components. Build json files file with all dependencies of components inside of page to be used by tasks manager like gulp, grunt, broccoli, etc...
 
 ### Getting Started
-#### Create a component.json with type:"page"
+#### Create a component.json with attribute type. Ex: type:"page"
 ```javascript
 // assets/desktop/home/js/wm-component.json
 {
@@ -73,7 +73,7 @@ Options:
   -h, --help             Display help and usage details
 ```
 
-### Output
+### Output file
 ---
 Running command bellow, Zweepr will create a json senttings with all dependencies inside your page ;)
 
