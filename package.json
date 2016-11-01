@@ -1,6 +1,6 @@
 {
   "name": "zweepr",
-  "version": "1.0.10-2",
+  "version": "1.0.10",
   "description": "This NPM module consolidates settings and dependencies of (and between) components. Build json files to be used by tasks manager like gulp, grunt, broccoli, etc...",
   "main": "./app.js",
   "bin": {
